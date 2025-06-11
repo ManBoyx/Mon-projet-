@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site de Test</title>
+    <!-- Chargement de Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Gris clair */
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+    <div class="bg-white p-8 rounded-lg shadow-xl max-w-md w-full text-center">
+        <!-- Titre principal -->
+        <h1 class="text-4xl font-bold text-gray-800 mb-6">Bienvenue sur votre site de test !</h1>
+
+        <!-- Paragraphe descriptif -->
+        <p class="text-gray-600 mb-8 leading-relaxed">
+            Ceci est une page simple pour tester votre environnement web. Vous pouvez la modifier, ajouter de nouveaux éléments ou la réutiliser pour vos projets.
+        </p>
+
+        <!-- Bouton interactif -->
+        <button id="testButton" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 mb-6">
+            Cliquez-moi !
+        </button>
+
+        <!-- Champ de saisie -->
+        <div class="mb-8">
+            <label for="testInput" class="block text-gray-700 text-sm font-bold mb-2">
+                Entrez quelque chose ici :
+            </label>
+            <input type="text" id="testInput" placeholder="Tapez votre texte..."
+                   class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75">
+        </div>
+
+        <!-- Zone pour afficher le texte du bouton ou de l'input -->
+        <div id="messageArea" class="bg-gray-100 p-4 rounded-lg text-gray-700 text-lg font-medium">
+            Le message s'affichera ici.
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const testButton = document.getElementById('testButton');
+            const testInput = document.getElementById('testInput');
+            const messageArea = document.getElementById('messageArea');
+
+            // Gère le clic sur le bouton
+            testButton.addEventListener('click', function() {
+                messageArea.textContent = 'Bouton cliqué !';
+                // Optionnel: Réinitialiser le champ de saisie
+                testInput.value = '';
+            });
+
+            // Gère la saisie dans le champ de texte
+            testInput.addEventListener('input', function() {
+                if (testInput.value.trim() === '') {
+                    messageArea.textContent = 'Le message s\'affichera ici.';
+                } else {
+                    messageArea.textContent = `Vous avez tapé : "${testInput.value}"`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
